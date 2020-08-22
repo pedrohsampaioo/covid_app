@@ -1,0 +1,32 @@
+{
+    "updated": 1597862006564,
+    "country": "Afghanistan",
+    "countryInfo": {
+        "_id": 4,
+        "iso2": "AF",
+        "iso3": "AFG",
+        "lat": 33,
+        "long": 65,
+        "flag": "https://disease.sh/assets/img/flags/af.png"
+    },
+    "cases": 37599,
+    "todayCases": 0,
+    "deaths": 1375,
+    "todayDeaths": 0,
+    "recovered": 27166,
+    "todayRecovered": 0,
+    "active": 9058,
+    "critical": 31,
+    "casesPerOneMillion": 963,
+    "deathsPerOneMillion": 35,
+    "tests": 98772,
+    "testsPerOneMillion": 2530,
+    "population": 39038261,
+    "continent": "Asia",
+    "oneCasePerPeople": 1038,
+    "oneDeathPerPeople": 28391,
+    "oneTestPerPeople": 395,
+    "activePerOneMillion": 232.03,
+    "recoveredPerOneMillion": 695.88,
+    "criticalPerOneMillion": 0.79
+}
