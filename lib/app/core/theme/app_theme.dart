@@ -7,5 +7,7 @@ part 'app_colors.dart';
 class AppTheme {
   static get config => ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(),
+        primaryColor: AppColors.darkPurple,
+        accentColor: AppColors.darkPurple,
       );
 }
