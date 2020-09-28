@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -12,6 +13,17 @@ class CountryCubit extends Cubit<CountryState> {
   final CountryRepository _repository;
   CountryCubit(this._repository) : super(CountryState.started());
 
+  void changeSelectedCountry(CountryModel country) {
+    state.maybeMap(
+      orElse: () {},
+      loadSuccess: (data) => emit(
+        data.copyWith(
+          selectedCountry: optionOf(country),
+        ),
+      ),
+    );
+  }
+
   Future<void> fetchAllCountries() async {
     emit(CountryState.loadInProgress());
     final successOrFailure = await _repository.fetchAll();
@@ -20,7 +32,10 @@ class CountryCubit extends Cubit<CountryState> {
         CountryState.loadFailure(failure),
       ),
       (countries) => emit(
-        CountryState.loadSuccess(countries),
+        CountryState.loadSuccess(
+          countries: countries,
+          selectedCountry: none(),
+        ),
       ),
     );
   }

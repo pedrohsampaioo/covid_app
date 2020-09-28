@@ -48,7 +48,13 @@ main() {
             (_) async => right(countries),
           );
           await cubit.fetchAllCountries();
-          expect(cubit.state, CountryState.loadSuccess(countries));
+          expect(
+            cubit.state,
+            CountryState.loadSuccess(
+              countries: countries,
+              selectedCountry: none(),
+            ),
+          );
         },
       );
 

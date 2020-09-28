@@ -23,9 +23,12 @@ class _$CountryStateTearOff {
   }
 
 // ignore: unused_element
-  CountryLoadSucces loadSuccess(List<CountryModel> countries) {
+  CountryLoadSucces loadSuccess(
+      {@required List<CountryModel> countries,
+      @required Option<CountryModel> selectedCountry}) {
     return CountryLoadSucces(
-      countries,
+      countries: countries,
+      selectedCountry: selectedCountry,
     );
   }
 
@@ -45,14 +48,17 @@ mixin _$CountryState {
   Result when<Result extends Object>({
     @required Result started(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<CountryModel> countries),
+    @required
+        Result loadSuccess(
+            List<CountryModel> countries, Option<CountryModel> selectedCountry),
     @required Result loadFailure(Failure failure),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result started(),
     Result loadInProgress(),
-    Result loadSuccess(List<CountryModel> countries),
+    Result loadSuccess(
+        List<CountryModel> countries, Option<CountryModel> selectedCountry),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   });
@@ -125,7 +131,9 @@ class _$CountryStarted implements CountryStarted {
   Result when<Result extends Object>({
     @required Result started(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<CountryModel> countries),
+    @required
+        Result loadSuccess(
+            List<CountryModel> countries, Option<CountryModel> selectedCountry),
     @required Result loadFailure(Failure failure),
   }) {
     assert(started != null);
@@ -140,7 +148,8 @@ class _$CountryStarted implements CountryStarted {
   Result maybeWhen<Result extends Object>({
     Result started(),
     Result loadInProgress(),
-    Result loadSuccess(List<CountryModel> countries),
+    Result loadSuccess(
+        List<CountryModel> countries, Option<CountryModel> selectedCountry),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   }) {
@@ -225,7 +234,9 @@ class _$CountryLoadInProgress implements CountryLoadInProgress {
   Result when<Result extends Object>({
     @required Result started(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<CountryModel> countries),
+    @required
+        Result loadSuccess(
+            List<CountryModel> countries, Option<CountryModel> selectedCountry),
     @required Result loadFailure(Failure failure),
   }) {
     assert(started != null);
@@ -240,7 +251,8 @@ class _$CountryLoadInProgress implements CountryLoadInProgress {
   Result maybeWhen<Result extends Object>({
     Result started(),
     Result loadInProgress(),
-    Result loadSuccess(List<CountryModel> countries),
+    Result loadSuccess(
+        List<CountryModel> countries, Option<CountryModel> selectedCountry),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   }) {
@@ -291,7 +303,8 @@ abstract class $CountryLoadSuccesCopyWith<$Res> {
   factory $CountryLoadSuccesCopyWith(
           CountryLoadSucces value, $Res Function(CountryLoadSucces) then) =
       _$CountryLoadSuccesCopyWithImpl<$Res>;
-  $Res call({List<CountryModel> countries});
+  $Res call(
+      {List<CountryModel> countries, Option<CountryModel> selectedCountry});
 }
 
 class _$CountryLoadSuccesCopyWithImpl<$Res>
@@ -307,22 +320,33 @@ class _$CountryLoadSuccesCopyWithImpl<$Res>
   @override
   $Res call({
     Object countries = freezed,
+    Object selectedCountry = freezed,
   }) {
     return _then(CountryLoadSucces(
-      countries == freezed ? _value.countries : countries as List<CountryModel>,
+      countries: countries == freezed
+          ? _value.countries
+          : countries as List<CountryModel>,
+      selectedCountry: selectedCountry == freezed
+          ? _value.selectedCountry
+          : selectedCountry as Option<CountryModel>,
     ));
   }
 }
 
 class _$CountryLoadSucces implements CountryLoadSucces {
-  const _$CountryLoadSucces(this.countries) : assert(countries != null);
+  const _$CountryLoadSucces(
+      {@required this.countries, @required this.selectedCountry})
+      : assert(countries != null),
+        assert(selectedCountry != null);
 
   @override
   final List<CountryModel> countries;
+  @override
+  final Option<CountryModel> selectedCountry;
 
   @override
   String toString() {
-    return 'CountryState.loadSuccess(countries: $countries)';
+    return 'CountryState.loadSuccess(countries: $countries, selectedCountry: $selectedCountry)';
   }
 
   @override
@@ -331,12 +355,17 @@ class _$CountryLoadSucces implements CountryLoadSucces {
         (other is CountryLoadSucces &&
             (identical(other.countries, countries) ||
                 const DeepCollectionEquality()
-                    .equals(other.countries, countries)));
+                    .equals(other.countries, countries)) &&
+            (identical(other.selectedCountry, selectedCountry) ||
+                const DeepCollectionEquality()
+                    .equals(other.selectedCountry, selectedCountry)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(countries);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(countries) ^
+      const DeepCollectionEquality().hash(selectedCountry);
 
   @override
   $CountryLoadSuccesCopyWith<CountryLoadSucces> get copyWith =>
@@ -347,14 +376,16 @@ class _$CountryLoadSucces implements CountryLoadSucces {
   Result when<Result extends Object>({
     @required Result started(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<CountryModel> countries),
+    @required
+        Result loadSuccess(
+            List<CountryModel> countries, Option<CountryModel> selectedCountry),
     @required Result loadFailure(Failure failure),
   }) {
     assert(started != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
-    return loadSuccess(countries);
+    return loadSuccess(countries, selectedCountry);
   }
 
   @override
@@ -362,13 +393,14 @@ class _$CountryLoadSucces implements CountryLoadSucces {
   Result maybeWhen<Result extends Object>({
     Result started(),
     Result loadInProgress(),
-    Result loadSuccess(List<CountryModel> countries),
+    Result loadSuccess(
+        List<CountryModel> countries, Option<CountryModel> selectedCountry),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
-      return loadSuccess(countries);
+      return loadSuccess(countries, selectedCountry);
     }
     return orElse();
   }
@@ -406,10 +438,12 @@ class _$CountryLoadSucces implements CountryLoadSucces {
 }
 
 abstract class CountryLoadSucces implements CountryState {
-  const factory CountryLoadSucces(List<CountryModel> countries) =
-      _$CountryLoadSucces;
+  const factory CountryLoadSucces(
+      {@required List<CountryModel> countries,
+      @required Option<CountryModel> selectedCountry}) = _$CountryLoadSucces;
 
   List<CountryModel> get countries;
+  Option<CountryModel> get selectedCountry;
   $CountryLoadSuccesCopyWith<CountryLoadSucces> get copyWith;
 }
 
@@ -484,7 +518,9 @@ class _$CountryLoadFailure implements CountryLoadFailure {
   Result when<Result extends Object>({
     @required Result started(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<CountryModel> countries),
+    @required
+        Result loadSuccess(
+            List<CountryModel> countries, Option<CountryModel> selectedCountry),
     @required Result loadFailure(Failure failure),
   }) {
     assert(started != null);
@@ -499,7 +535,8 @@ class _$CountryLoadFailure implements CountryLoadFailure {
   Result maybeWhen<Result extends Object>({
     Result started(),
     Result loadInProgress(),
-    Result loadSuccess(List<CountryModel> countries),
+    Result loadSuccess(
+        List<CountryModel> countries, Option<CountryModel> selectedCountry),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   }) {
