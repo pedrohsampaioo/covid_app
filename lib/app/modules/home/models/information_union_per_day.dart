@@ -8,7 +8,7 @@ class InformationUnionPerDay {
   final InformationPerDayModel deaths;
   final InformationPerDayModel recovered;
 
-  InformationUnionPerDay({
+  const InformationUnionPerDay({
     @required this.country,
     @required this.cases,
     @required this.deaths,
