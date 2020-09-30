@@ -1,16 +1,42 @@
-# covid_app
+<p align="center">	
+   <a href="https://www.linkedin.com/in/pedro-henrique-da-silva-sampaio-ba2b7716b/">
+      <img alt="Pedro Henrique" src="https://img.shields.io/badge/-PedroHenrique-8257E5?style=flat&logo=Linkedin&logoColor=white" />
+   </a>
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-8257E5">
+  <a href="https://github.com/pedrohsampaioo/covid_app/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/pedrohsampaioo/covid_app?color=8257E5&logo=github">
+  </a>
+</p>
 
-A new Flutter project.
+> :speech_balloon: Designed to train knowledge of consuming API and dependency injection management (load on demand).
 
-## Getting Started
+# :notebook_with_decorative_cover: Covid App
 
-This project is a starting point for a Flutter application.
+# :movie_camera: Overview
 
-A few resources to get you started if this is your first Flutter project:
+<img src="/assets/readme/gifs/overview.gif" width="200" height="400">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# :camera: Screenshots
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="/assets/readme/screenshots/home02.png" width="200" height="400" > <img src="/assets/readme/screenshots/home01.png" width="200" height="400" > <img src="/assets/readme/screenshots/select_country.png" width="200" height="400"> <img src="/assets/readme/screenshots/home03.png" width="200" height="400">
+
+# :construction_worker: Installation
+
+```
+$ git clone https://github.com/pedrohsampaioo/covid_app.git
+
+$ cd covid_app
+
+```
+
+# :runner: Getting Started
+
+Run the following command in order to start the application:
+
+```
+# Install Dependencies
+$ flutter pub get
+
+ # Start compilation
+ $ flutter run
+```
