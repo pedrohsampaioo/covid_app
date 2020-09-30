@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../core/failures/failure.dart';
@@ -9,7 +10,7 @@ import '../../repositories/country_repository.dart';
 part 'country_cubit.freezed.dart';
 part 'country_state.dart';
 
-class CountryCubit extends Cubit<CountryState> {
+class CountryCubit extends Cubit<CountryState> implements Disposable {
   final CountryRepository _repository;
   CountryCubit(this._repository) : super(CountryState.started());
 
@@ -38,5 +39,10 @@ class CountryCubit extends Cubit<CountryState> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    close();
   }
 }
