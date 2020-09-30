@@ -36,7 +36,7 @@ class HistoricModel {
     );
   }
 
-   factory HistoricModel.fromJsonGlobal(Map<String, dynamic> json) {
+  factory HistoricModel.fromJsonGlobal(Map<String, dynamic> json) {
     final country = 'Global';
     final casesJson = json['cases'] as Map;
     final deathsJson = json['deaths'] as Map;
@@ -50,6 +50,23 @@ class HistoricModel {
       cases: cases,
       deaths: deaths,
       recovered: recovered,
+    );
+  }
+
+  bool get hasData =>
+      cases.isNotEmpty && deaths.isNotEmpty && recovered.isNotEmpty;
+
+  HistoricModel copyWith({
+    String country,
+    List<InformationPerDayModel> cases,
+    List<InformationPerDayModel> deaths,
+    List<InformationPerDayModel> recovered,
+  }) {
+    return HistoricModel(
+      country: country ?? this.country,
+      cases: cases ?? this.cases,
+      deaths: deaths ?? this.deaths,
+      recovered: recovered ?? this.recovered,
     );
   }
 }

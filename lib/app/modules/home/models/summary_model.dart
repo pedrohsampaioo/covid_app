@@ -8,7 +8,6 @@ class SummaryModel {
   final String recovered;
   final String todayRecovered;
   final String active;
-  final String affectedCountries;
   final String tests;
 
   const SummaryModel({
@@ -19,7 +18,6 @@ class SummaryModel {
     @required this.recovered,
     @required this.todayRecovered,
     @required this.active,
-    @required this.affectedCountries,
     @required this.tests,
   })  : assert(cases != null),
         assert(todayCases != null),
@@ -28,7 +26,6 @@ class SummaryModel {
         assert(recovered != null),
         assert(todayRecovered != null),
         assert(active != null),
-        assert(affectedCountries != null),
         assert(tests != null);
 
   factory SummaryModel.fromJson(Map<String, dynamic> json) => SummaryModel(
@@ -39,7 +36,6 @@ class SummaryModel {
         recovered: json['recovered'].toString(),
         todayRecovered: json['todayRecovered'].toString(),
         active: json['active'].toString(),
-        affectedCountries: json['affectedCountries'].toString(),
         tests: json['tests'].toString(),
       );
 }
